@@ -52,5 +52,5 @@ Add following to VSCode settings.json:
 "eslint.packageManager": "pnpm"
 ```
 
-https://github.com/vercel/next.js/issues/40687
+https://github.com/vercel/next.js/issues/40687  
 https://stackoverflow.com/questions/68163385/parsing-error-cannot-find-module-next-babel/70421220#70421220
