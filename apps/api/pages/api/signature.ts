@@ -1,11 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import Cors from "cors";
+
 import { Signature } from "../../interfaces";
 import { createSignature } from "../../services/signature";
+import { isInteger, isPositive, runMiddleware } from "../../utils";
 
-export default function handler(
+/// https://github.com/expressjs/cors#configuration-options
+const cors = Cors({
+  methods: ["POST"],
+});
+
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Signature | String>
 ) {
+  // Run the middleware
+  await runMiddleware(req, res, cors);
+
   // validate
   if (req.method !== "POST") {
     res.status(400).send("Invalid HTTP method");
@@ -20,10 +31,7 @@ export default function handler(
     return;
   }
 
+  // create
   const signature = createSignature(meetingNumber);
-
   res.status(200).json({ signature });
 }
-
-const isInteger = (str: String): Boolean => Number.isInteger(str);
-const isPositive = (str: Number): Boolean => str > 0;
