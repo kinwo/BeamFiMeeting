@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx,css,md,html,json}\"",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -25,7 +25,7 @@
   },
   "packageManager": "pnpm@7.28.0",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md,html,json}": "prettier --write"
+    "*.{js, ts, tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,css,md,html,json}": "prettier --write"
   }
 }
