@@ -15,7 +15,8 @@
     "jsrsasign": "^10.6.1",
     "next": "^13.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "interfaces": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

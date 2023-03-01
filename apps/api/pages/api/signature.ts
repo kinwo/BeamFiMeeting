@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 
-import { Signature } from "../../interfaces";
+import { Signature } from "interfaces";
 import { createSignature } from "../../services/signature";
 import { isInteger, isPositive, runMiddleware } from "../../utils";
 
@@ -12,7 +12,7 @@ const cors = Cors({
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Signature | String>
+  res: NextApiResponse<Signature | string>
 ) {
   // Run the middleware
   await runMiddleware(req, res, cors);
