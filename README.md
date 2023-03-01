@@ -2,11 +2,7 @@
 
 This repos is based on pnpm starter turborepo template.
 
-## What's inside?
-
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
-
-### Apps and Packages
+## Apps and Packages
 
 - `docs`: a [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
@@ -16,17 +12,43 @@ This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes th
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Utilities
+## Quick Start
 
-This turborepo has some additional tools already setup for you:
+- Install pnpm https://pnpm.io/
+- Install Vercel CLI https://vercel.com/docs/cli
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+```
+pnpm i -g vercel
+```
 
-### Quick Start
+- Login Vercel
 
-### Build
+```
+vercel login
+```
+
+- Link apps/api to Vercel
+  choose beam-fi-meeting-api
+
+```
+cd apps/api
+vercel link
+```
+
+- Setup env vars for apps/api:
+
+```
+vercel env pull .env.local
+```
+
+- Run install in root
+  Go back to the project root dir
+
+```
+pnpm install
+```
+
+## Build
 
 To build all apps and packages, run the following command:
 
@@ -34,7 +56,7 @@ To build all apps and packages, run the following command:
 pnpm run build
 ```
 
-### Develop
+## Develop
 
 To develop all apps and packages, run the following command:
 
