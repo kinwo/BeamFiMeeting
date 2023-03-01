@@ -1,4 +1,4 @@
-## BeamFi Meeting Web App
+## BeamFi Meeting API
 
 ## Quick Start
 

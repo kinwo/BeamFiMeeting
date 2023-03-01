@@ -10,16 +10,22 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{js,ts,tsx,css,md,html,json}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
-  "packageManager": "pnpm@7.28.0"
+  "packageManager": "pnpm@7.28.0",
+  "lint-staged": {
+    "*.{js, ts, tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,css,md,html,json}": "prettier --write"
+  }
 }
