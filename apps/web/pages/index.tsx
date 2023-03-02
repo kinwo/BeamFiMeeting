@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 
 import {
-  Button,
   Box,
   FormControl,
   FormLabel,
@@ -14,7 +13,6 @@ import {
   Flex,
   Center,
   HStack,
-  useDisclosure,
   Spacer,
   Text,
 } from "@chakra-ui/react";
