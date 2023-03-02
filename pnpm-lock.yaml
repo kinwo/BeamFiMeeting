@@ -85,6 +85,7 @@ importers:
   apps/web:
     specifiers:
       '@babel/core': ^7.21.0
+      '@fontsource/poppins': ^4.5.10
       '@types/lodash': ^4.14.191
       '@types/node': ^18.14.2
       '@types/react': ^18.0.28
@@ -95,17 +96,20 @@ importers:
       interfaces: workspace:*
       lodash: ^4.17.21
       next: ^13.2.2
+      next-axiom: ^0.17.0
       react: 18.2.0
       react-dom: 18.2.0
       tsconfig: workspace:*
       typescript: ^4.9.5
       ui: workspace:*
     dependencies:
+      '@fontsource/poppins': 4.5.10
       '@types/lodash': 4.14.191
       '@zoomus/websdk': 2.10.0_pvnihi4muhoy7kenlmiyxwzuqy
       interfaces: link:../../packages/interfaces
       lodash: 4.17.21
       next: 13.2.2_6m24vuloj5ihw4zc5lbsktc4fu
+      next-axiom: 0.17.0_next@13.2.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       ui: link:../../packages/ui
@@ -379,6 +383,10 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@fontsource/poppins/4.5.10:
+    resolution: {integrity: sha512-oYZVHsnlwV3VWM1SE/m6SUxVh0QLk5+2wB+lBiXcI7N/0KVQWmV9YykaPqfJHBLvmdya+MAOnv+BQHeLU1vOOw==}
+    dev: false
 
   /@humanwhocodes/config-array/0.5.0:
     resolution: {integrity: sha512-FagtKFz74XrTl7y6HCzQpwDfXP0yhxe9lHLD1UZxjvZIcbyRz8zTFF/yYNfSfzU414eDwZ1SrO0Qvtyf+wFMQg==}
@@ -2266,6 +2274,16 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
+  /next-axiom/0.17.0_next@13.2.2:
+    resolution: {integrity: sha512-qFdnH50SvRjJUAmNjGIYLcRc4tO/U4R1h9WUuniiwaucXAH5KhL06m7TT3WWD2U1HbulwSfC0R+NlPASOx1XlQ==}
+    engines: {node: '>=15'}
+    peerDependencies:
+      next: ^12.1.4 || ^13
+    dependencies:
+      next: 13.2.2_6m24vuloj5ihw4zc5lbsktc4fu
+      whatwg-fetch: 3.6.2
+    dev: false
+
   /next/13.2.1_6m24vuloj5ihw4zc5lbsktc4fu:
     resolution: {integrity: sha512-qhgJlDtG0xidNViJUPeQHLGJJoT4zDj/El7fP3D3OzpxJDUfxsm16cK4WTMyvSX1ciIfAq05u+0HqFAa+VJ+Hg==}
     engines: {node: '>=14.6.0'}
@@ -3082,6 +3100,10 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /whatwg-fetch/3.6.2:
+    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
     dev: false
 
   /which-boxed-primitive/1.0.2:

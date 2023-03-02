@@ -1,9 +1,11 @@
 import { useState, useEffect, MouseEvent } from "react";
 
+import { isNumber, isString } from "lodash";
+import { log } from "next-axiom";
+
 import { ZoomConfigModel as config } from "../model";
 import { Signature } from "interfaces";
 import { useRouter } from "next/router";
-import { isNumber, isString } from "lodash";
 
 const ZoomLibURI = "https://source.zoom.us/2.9.7/lib";
 const ZoomLang = "en-US";
@@ -35,7 +37,7 @@ export default function ZoomWebApp() {
       !isString(query.userName) ||
       !isString(query.passWord)
     ) {
-      console.info("Invalid query params");
+      log.info("Invalid query params");
       return;
     }
 
@@ -44,16 +46,15 @@ export default function ZoomWebApp() {
     const passWord = String(query.passWord);
 
     // TODO - Switch to proper logging lib
-    console.info("query params:");
-    console.info(query);
+    log.info("query params:", query);
 
     try {
       const signature = await fetchSignature(meetingNumber);
 
       const ZoomMtg = await loadZoom();
       await startMeeting(ZoomMtg, signature, userName, meetingNumber, passWord);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      log.error("Error in fetching signature: ", error);
     }
   }
 
@@ -90,7 +91,7 @@ export default function ZoomWebApp() {
     ZoomMtg.init({
       leaveUrl: config.leaveUrl,
       success: (success: any) => {
-        console.log(success);
+        log.info(success);
 
         ZoomMtg.join({
           signature,
@@ -99,15 +100,15 @@ export default function ZoomWebApp() {
           sdkKey: config.sdkKey,
           passWord,
           success: (success: any) => {
-            console.log(success);
+            log.info(success);
           },
           error: (error: any) => {
-            console.log(error);
+            log.error(error);
           },
         });
       },
       error: (error: any) => {
-        console.log(error);
+        log.error(error);
       },
     });
   }

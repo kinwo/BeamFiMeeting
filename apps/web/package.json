@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/poppins": "^4.5.10",
     "@types/lodash": "^4.14.191",
     "@zoomus/websdk": "^2.10.0",
     "interfaces": "workspace:*",
     "lodash": "^4.17.21",
     "next": "^13.2.2",
+    "next-axiom": "^0.17.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ui": "workspace:*"
