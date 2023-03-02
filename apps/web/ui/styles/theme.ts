@@ -1,9 +1,9 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react"
 
 const theme = extendTheme({
   fonts: {
     heading: "Poppins",
-    body: "Poppins",
+    body: "Poppins"
   },
   colors: {
     beam_blue: "#D8F2FF",
@@ -46,7 +46,7 @@ const theme = extendTheme({
       600: "#2db000",
       700: "#1e7e00",
       800: "#0e4c00",
-      900: "#001a00",
+      900: "#001a00"
     },
     purple_scheme: {
       50: "#f7e8ff",
@@ -58,7 +58,7 @@ const theme = extendTheme({
       600: "#5e1f93",
       700: "#43166a",
       800: "#290c42",
-      900: "#10031b",
+      900: "#10031b"
     },
     mobile_menu_gray: "#575B65",
     orange_1: "#FCA532",
@@ -72,7 +72,7 @@ const theme = extendTheme({
     blue_dark: "#4373F0",
     red_1: "#DD2773",
     brand: {
-      priamary: "#4299F5",
+      priamary: "#4299F5"
     },
     gradient: {
       purple: {
@@ -83,19 +83,19 @@ const theme = extendTheme({
         5: "linear-gradient(90deg, #AC62E3 0%, #7F2CC6 100%)",
         6: "linear-gradient(90deg, #C28DE9 0%, #A469D5 100%)",
         7: "linear-gradient(90deg, #C1648C 0%, #A44DB9 25%, #7F44E2 55%, #4A6AEF 75%, #3DA1EF 100%)",
-        8: "linear-gradient(90deg, #34EFEC 0%, #4361EE 25%, #9542EA 50%, #D61865 75%, #FB9130 100%)",
-      },
-    },
+        8: "linear-gradient(90deg, #34EFEC 0%, #4361EE 25%, #9542EA 50%, #D61865 75%, #FB9130 100%)"
+      }
+    }
   },
   initialColorMode: "light",
   icons: {},
   components: {
     Link: {
       baseStyle: {
-        color: "#4299F5",
-      },
-    },
-  },
-});
+        color: "#4299F5"
+      }
+    }
+  }
+})
 
-export default theme;
+export default theme

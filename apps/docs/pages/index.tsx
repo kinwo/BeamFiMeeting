@@ -1,4 +1,4 @@
-import { Button } from "ui";
+import { Button } from "ui"
 
 export default function Docs() {
   return (
@@ -7,5 +7,5 @@ export default function Docs() {
       <h1>Henry Docs</h1>
       <Button />
     </div>
-  );
+  )
 }

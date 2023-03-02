@@ -1,2 +1,2 @@
-export const isInteger = (str: string): boolean => Number.isInteger(str);
-export const isPositive = (str: number): boolean => str > 0;
+export const isInteger = (str: string): boolean => Number.isInteger(str)
+export const isPositive = (str: number): boolean => str > 0
