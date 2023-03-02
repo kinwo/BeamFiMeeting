@@ -7,6 +7,6 @@ module.exports = {
     "no-undef": 2,
     "no-throw-literal": 2,
     "prefer-const": 1,
-    "no-implicit-coercion": 2,
-  },
-};
+    "no-implicit-coercion": 2
+  }
+}

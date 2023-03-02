@@ -1,6 +1,6 @@
 export type ZoomConfig = {
-  signatureEndpoint: string;
-  sdkKey: string;
-  role: number;
-  leaveUrl: string;
-};
+  signatureEndpoint: string
+  sdkKey: string
+  role: number
+  leaveUrl: string
+}

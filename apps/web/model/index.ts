@@ -1,1 +1,1 @@
-export * from "./ZoomConfigModel";
+export * from "./ZoomConfigModel"

@@ -1,6 +1,6 @@
-import { MouseEvent, useMemo, useState } from "react";
-import Head from "next/head";
-import Image from "next/image";
+import { MouseEvent, useMemo, useState } from "react"
+import Head from "next/head"
+import Image from "next/image"
 
 import {
   Box,
@@ -14,65 +14,65 @@ import {
   Center,
   HStack,
   Spacer,
-  Text,
-} from "@chakra-ui/react";
+  Text
+} from "@chakra-ui/react"
 
-import MajorActionButton from "../ui/components/button/MajorActionButton";
+import { MajorActionButton } from "../ui/components/button/MajorActionButton"
 
-import { isNumber, isString } from "lodash";
-import { log } from "next-axiom";
+import { isNumber, isString } from "lodash"
+import { log } from "next-axiom"
 
-import { ZoomConfigModel as config } from "../model";
-import { Signature } from "interfaces";
-import { useRouter } from "next/router";
+import { ZoomConfigModel as config } from "../model"
+import { Signature } from "interfaces"
+import { useRouter } from "next/router"
 
-const ZoomLibURI = "https://source.zoom.us/2.9.7/lib";
-const ZoomLang = "en-US";
-const zoomElementId = "zmmtg-root";
+const ZoomLibURI = "https://source.zoom.us/2.9.7/lib"
+const ZoomLang = "en-US"
+const zoomElementId = "zmmtg-root"
 
 export default function ZoomWebApp() {
-  const router = useRouter();
+  const router = useRouter()
 
   async function joinMeeting(e: MouseEvent<HTMLElement>) {
-    e.preventDefault();
+    e.preventDefault()
 
     // validate
-    const query = router.query;
+    const query = router.query
 
     if (
       !isNumber(query.meetingNumber) ||
       !isString(query.userName) ||
       !isString(query.passWord)
     ) {
-      log.warn("Invalid query params", query);
-      return;
+      log.warn("Invalid query params", query)
+      return
     }
 
-    log.info("Valid query params: ", query);
+    log.info("Valid query params: ", query)
 
-    const meetingNumber: number = Number(query.meetingNumber);
-    const userName = String(query.userName);
-    const passWord = String(query.passWord);
+    const meetingNumber: number = Number(query.meetingNumber)
+    const userName = String(query.userName)
+    const passWord = String(query.passWord)
 
     try {
-      const signature = await fetchSignature(meetingNumber);
-      const ZoomMtg = await loadZoom();
-      await startMeeting(ZoomMtg, signature, userName, meetingNumber, passWord);
+      const signature = await fetchSignature(meetingNumber)
+      const ZoomMtg = await loadZoom()
+      await startMeeting(ZoomMtg, signature, userName, meetingNumber, passWord)
     } catch (error: any) {
-      log.error("Error in fetching signature: ", error);
+      log.error("Error in fetching signature: ", error)
     }
   }
 
   async function loadZoom(): Promise<any> {
-    const { ZoomMtg } = await import("@zoomus/websdk");
+    const { ZoomMtg } = await import("@zoomus/websdk")
 
-    ZoomMtg.setZoomJSLib(ZoomLibURI, "/av");
-    ZoomMtg.preLoadWasm();
-    ZoomMtg.prepareWebSDK();
-    ZoomMtg.i18n.load(ZoomLang);
-    ZoomMtg.i18n.reload(ZoomLang);
+    ZoomMtg.setZoomJSLib(ZoomLibURI, "/av")
+    ZoomMtg.preLoadWasm()
+    ZoomMtg.prepareWebSDK()
+    ZoomMtg.i18n.load(ZoomLang)
+    ZoomMtg.i18n.reload(ZoomLang)
 
-    return ZoomMtg;
+    return ZoomMtg
   }
 
   async function fetchSignature(meetingNumber: number): Promise<string> {
@@ -81,16 +81,16 @@ export default function ZoomWebApp() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         meetingNumber,
-        role: config.role,
-      }),
-    });
+        role: config.role
+      })
+    })
 
     if (!res.ok) {
-      throw new Error("Invalid response when fetching signature");
+      throw new Error("Invalid response when fetching signature")
     }
 
-    const { signature }: Signature = await res.json();
-    return signature;
+    const { signature }: Signature = await res.json()
+    return signature
   }
 
   function startMeeting(
@@ -102,13 +102,13 @@ export default function ZoomWebApp() {
   ) {
     const zoomElement = document.getElementById(
       zoomElementId
-    ) as HTMLInputElement;
-    zoomElement.style.display = "block";
+    ) as HTMLInputElement
+    zoomElement.style.display = "block"
 
     ZoomMtg.init({
       leaveUrl: config.leaveUrl,
       success: (success: any) => {
-        log.info(success);
+        log.info(success)
 
         ZoomMtg.join({
           signature,
@@ -117,37 +117,37 @@ export default function ZoomWebApp() {
           sdkKey: config.sdkKey,
           passWord,
           success: (success: any) => {
-            log.info(success);
+            log.info(success)
           },
           error: (error: any) => {
-            log.error(error);
-          },
-        });
+            log.error(error)
+          }
+        })
       },
       error: (error: any) => {
-        log.error(error);
-      },
-    });
+        log.error(error)
+      }
+    })
   }
 
-  const [participantName, setParticipantName] = useState("");
-  const [hasBlurredNameInput, setHasBlurredNameInput] = useState(false);
+  const [participantName, setParticipantName] = useState("")
+  const [hasBlurredNameInput, setHasBlurredNameInput] = useState(false)
 
   const invalidParticipantName = useMemo(
     () => !participantName,
     [participantName]
-  );
+  )
 
   const isInputInvalid = useMemo(
     () => invalidParticipantName && hasBlurredNameInput,
     [invalidParticipantName, hasBlurredNameInput]
-  );
+  )
 
   const handleParticipantNameChange = (event: {
-    target: { value: string };
+    target: { value: string }
   }) => {
-    setParticipantName(event.target.value);
-  };
+    setParticipantName(event.target.value)
+  }
 
   return (
     <>
@@ -218,5 +218,5 @@ export default function ZoomWebApp() {
         </Center>
       </Flex>
     </>
-  );
+  )
 }
