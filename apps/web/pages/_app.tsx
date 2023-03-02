@@ -1,6 +1,12 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+// Chakra
+import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
+
+// Theme
+import theme from "../ui/styles/theme";
+
 // Fonts
 import "@fontsource/poppins/300.css";
 import "@fontsource/poppins/400.css";
@@ -20,7 +26,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
       </Head>
-      <Component {...pageProps} />
+      <ChakraProvider resetCSS theme={theme}>
+        <ColorModeProvider>
+          <Component {...pageProps} />
+        </ColorModeProvider>
+      </ChakraProvider>
     </>
   );
 }
