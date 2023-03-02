@@ -182,7 +182,7 @@ export default function ZoomWebApp() {
 
         <Center height="100%" zIndex={1}>
           <Flex direction="column" align="center" mt="-260px">
-            <Box background="white" padding="4" borderRadius="4" width="460px">
+            <Box background="white" padding="4" borderRadius="4">
               <Stack spacing="4">
                 <Heading>Join Zoom Meeting</Heading>
                 <FormControl
