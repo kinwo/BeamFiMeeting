@@ -9,17 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.191",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/poppins": "^4.5.10",
     "@zoomus/websdk": "^2.10.0",
+    "framer-motion": "^10.0.1",
     "interfaces": "workspace:*",
     "lodash": "^4.17.21",
     "next": "^13.2.2",
+    "next-axiom": "^0.17.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ui": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.14.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
