@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 
 // Chakra
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
@@ -29,6 +30,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider resetCSS theme={theme}>
         <ColorModeProvider>
           <Component {...pageProps} />
+          <Analytics />
         </ColorModeProvider>
       </ChakraProvider>
     </>
