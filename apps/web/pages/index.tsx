@@ -29,6 +29,9 @@ import { MeetingFetchSignature } from "../commands/meeting/MeetingFetchSignature
 import { MeetingLoadZoom } from "../commands/meeting/MeetingLoadZoom"
 import { MeetingStartZoom } from "../commands/meeting/MeetingStartZoom"
 
+// Set log level
+log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
+
 export default function ZoomWebApp() {
   const [participantName, setParticipantName] = useState("")
   const [hasBlurredNameInput, setHasBlurredNameInput] = useState(false)
