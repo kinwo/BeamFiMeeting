@@ -1,4 +1,4 @@
-import { MouseEvent, useMemo, useState } from "react"
+import { MouseEvent, useEffect, useMemo, useState } from "react"
 import Head from "next/head"
 import Image from "next/image"
 
@@ -34,7 +34,11 @@ log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
 
 export default function ZoomWebApp() {
   const [participantName, setParticipantName] = useState("")
+  const [meetingId, setMeetingId] = useState("")
+  const [meetingPassword, setMeetingPassword] = useState("")
   const [hasBlurredNameInput, setHasBlurredNameInput] = useState(false)
+  const [hasBlurredMeetingIdInput, setHasBlurredMeetingIdInput] =
+    useState(false)
   const [isShowZoom, setShowZoom] = useState(false)
 
   const invalidParticipantName = useMemo(
@@ -42,28 +46,40 @@ export default function ZoomWebApp() {
     [participantName]
   )
 
-  const isInputInvalid = useMemo(
+  const invalidMeetingId = useMemo(() => !meetingId, [meetingId])
+
+  const isInvalid = invalidParticipantName || invalidMeetingId
+
+  const isParticipantNameInputInvalid = useMemo(
     () => invalidParticipantName && hasBlurredNameInput,
     [invalidParticipantName, hasBlurredNameInput]
   )
 
+  const isMeetingIdInputInvalid = useMemo(
+    () => invalidMeetingId && hasBlurredMeetingIdInput,
+    [invalidMeetingId, hasBlurredMeetingIdInput]
+  )
+
   const router = useRouter()
+
+  useEffect(() => {
+    const query = router.query
+    setMeetingId(query.meetingId as string)
+    setMeetingPassword(query.meetingPassword as string)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query])
 
   async function joinMeeting(e: MouseEvent<HTMLElement>) {
     e.preventDefault()
 
-    // create context
-    const query = router.query
-    const { meetingNumber, userName, passWord } = query as {
-      meetingNumber: string
-      userName: string
-      passWord: string
-    }
+    if (isInvalid) return
 
+    // create context
     const context: MeetingContext = {
-      meetingNumber,
-      userName,
-      passWord
+      meetingNumber: meetingId,
+      userName: participantName,
+      passWord: meetingPassword
     }
 
     // Create cmds and execute as batch macro
@@ -95,6 +111,16 @@ export default function ZoomWebApp() {
     target: { value: string }
   }) => {
     setParticipantName(event.target.value)
+  }
+
+  const handleMeetingIdChange = (event: { target: { value: string } }) => {
+    setMeetingId(event.target.value)
+  }
+
+  const handleMeetingPasswordChange = (event: {
+    target: { value: string }
+  }) => {
+    setMeetingPassword(event.target.value)
   }
 
   return (
@@ -130,24 +156,15 @@ export default function ZoomWebApp() {
           <Center height="100%" zIndex={1}>
             <Flex direction="column" align="center" mt="-260px">
               <Box background="white" padding="4" borderRadius="4">
-                <Stack spacing="4">
-                  <Heading>Join Zoom Meeting</Heading>
+                <Stack spacing="3">
+                  <Heading>Start Zoom Meeting</Heading>
+
                   <FormControl
-                    isInvalid={isInputInvalid}
-                    onBlur={() => setHasBlurredNameInput(true)}
+                    isInvalid={isParticipantNameInputInvalid}
+                    onBlur={() => {
+                      setHasBlurredNameInput(true)
+                    }}
                   >
-                    <FormLabel>Meeting ID</FormLabel>
-                    <Input
-                      maxLength={40}
-                      id="meeting_id"
-                      value={participantName}
-                      onChange={handleParticipantNameChange}
-                    />
-                    <FormHelperText
-                      color={!isInputInvalid ? "white" : "#E22C3E"}
-                    >
-                      This cannot be empty.
-                    </FormHelperText>
                     <FormLabel>Your Name</FormLabel>
                     <Input
                       maxLength={40}
@@ -156,14 +173,47 @@ export default function ZoomWebApp() {
                       onChange={handleParticipantNameChange}
                     />
                     <FormHelperText
-                      color={!isInputInvalid ? "white" : "#E22C3E"}
+                      color={
+                        !isParticipantNameInputInvalid ? "white" : "#E22C3E"
+                      }
                     >
                       This cannot be empty.
                     </FormHelperText>
                   </FormControl>
 
+                  <FormControl
+                    isInvalid={isMeetingIdInputInvalid}
+                    onBlur={() => {
+                      setHasBlurredMeetingIdInput(true)
+                    }}
+                  >
+                    <FormLabel>Meeting ID</FormLabel>
+                    <Input
+                      maxLength={40}
+                      id="meeting_id"
+                      value={meetingId}
+                      onChange={handleMeetingIdChange}
+                    />
+                    <FormHelperText
+                      color={!isMeetingIdInputInvalid ? "white" : "#E22C3E"}
+                    >
+                      This cannot be empty.
+                    </FormHelperText>
+                  </FormControl>
+
+                  <FormControl pb="20px">
+                    <FormLabel>Meeting Password</FormLabel>
+                    <Input
+                      maxLength={40}
+                      id="meeting_password"
+                      value={meetingPassword}
+                      onChange={handleMeetingPasswordChange}
+                      type="password"
+                    />
+                  </FormControl>
+
                   <MajorActionButton width="full" onClick={joinMeeting}>
-                    Join
+                    Start
                   </MajorActionButton>
                 </Stack>
               </Box>

@@ -1,7 +1,7 @@
 import { BaseCommand } from "interfaces"
 import { MeetingContext } from "./MeetingContext"
 
-import { isString } from "lodash"
+import { isString, isEmpty } from "lodash"
 import { log } from "next-axiom"
 import { isNumber } from "../../utils"
 
@@ -9,7 +9,7 @@ export class MeetingValidate extends BaseCommand<MeetingContext> {
   async execute(): Promise<void> {
     if (
       !isNumber(this.context.meetingNumber) ||
-      !isString(this.context.userName) ||
+      !(isString(this.context.userName) && !isEmpty(this.context.userName)) ||
       !isString(this.context.passWord)
     ) {
       log.warn("Invalid query params", this.getQueryParamObj())

@@ -31,7 +31,6 @@ export class MeetingStartZoom extends BaseCommand<MeetingContext> {
       meetingNumber,
       userName,
       passWord,
-      sdkKey: config.sdkKey,
       leaveUrl: config.leaveUrl
     })
 
