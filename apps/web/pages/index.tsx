@@ -73,7 +73,11 @@ export default function ZoomWebApp() {
   async function joinMeeting(e: MouseEvent<HTMLElement>) {
     e.preventDefault()
 
-    if (isInvalid) return
+    if (isInvalid) {
+      setHasBlurredNameInput(true)
+      setHasBlurredMeetingIdInput(true)
+      return
+    }
 
     // create context
     const context: MeetingContext = {
