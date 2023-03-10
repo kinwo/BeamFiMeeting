@@ -1,5 +1,4 @@
 import { BaseCommand } from "interfaces"
-import { log } from "next-axiom"
 import { MeetingContext } from "./MeetingContext"
 
 const ZoomLibURI = "https://source.zoom.us/2.9.7/lib"
@@ -16,7 +15,5 @@ export class MeetingLoadZoom extends BaseCommand<MeetingContext> {
     ZoomMtg.i18n.reload(ZoomLang)
 
     this.context.zoomMtg = ZoomMtg
-
-    log.info("MeetingLoadZoom: ", this.context.zoomMtg)
   }
 }

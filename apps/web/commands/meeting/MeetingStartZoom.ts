@@ -5,18 +5,13 @@ import { MeetingContext } from "./MeetingContext"
 
 import { ZoomConfigModel as config } from "../../model"
 
-const zoomElementId = "zmmtg-root"
-
 export class MeetingStartZoom extends BaseCommand<MeetingContext> {
   // eslint-disable-next-line no-unused-vars
-  constructor(public getElementById: Function, context: MeetingContext) {
+  constructor(context: MeetingContext) {
     super(context)
   }
 
   async execute(): Promise<void> {
-    const zoomElement = this.getElementById(zoomElementId) as HTMLInputElement
-    zoomElement.style.display = "block"
-
     const zoomMtg = this.context.zoomMtg
     const context = this.context
 
@@ -24,15 +19,6 @@ export class MeetingStartZoom extends BaseCommand<MeetingContext> {
     const userName = String(context.userName)
     const passWord = String(context.passWord)
     const signature = context.signature
-
-    log.info("MeetingStartZoom: ", this.context.zoomMtg)
-    log.info("MeetingStartZoom props:", {
-      signature,
-      meetingNumber,
-      userName,
-      passWord,
-      leaveUrl: config.leaveUrl
-    })
 
     zoomMtg.init({
       leaveUrl: config.leaveUrl,

@@ -2,7 +2,6 @@ import { BaseCommand, Signature } from "interfaces"
 import { MeetingContext } from "./MeetingContext"
 
 import { ZoomConfigModel as config } from "../../model"
-import { log } from "next-axiom"
 
 export class MeetingFetchSignature extends BaseCommand<MeetingContext> {
   async execute(): Promise<void> {
@@ -22,8 +21,6 @@ export class MeetingFetchSignature extends BaseCommand<MeetingContext> {
     }
 
     const { signature }: Signature = await res.json()
-    log.info("MeetingFetchSignature: ", { signature })
-
     this.context.signature = signature
   }
 }

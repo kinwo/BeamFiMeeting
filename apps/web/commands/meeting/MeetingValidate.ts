@@ -15,8 +15,6 @@ export class MeetingValidate extends BaseCommand<MeetingContext> {
       log.warn("Invalid query params", this.getQueryParamObj())
       throw new Error("Invalid query params")
     }
-
-    log.info("Valid query params: ", this.getQueryParamObj())
   }
 
   private getQueryParamObj(): Object {

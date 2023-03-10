@@ -26,13 +26,11 @@ import { useRouter } from "next/router"
 import { MeetingContext } from "../commands/meeting/MeetingContext"
 import { MeetingValidate } from "../commands/meeting/MeetingValidate"
 import { MeetingFetchSignature } from "../commands/meeting/MeetingFetchSignature"
-
-import { MeetingStartZoomComp } from "../commands/meeting/MeetingStartZoomComp"
+import { MeetingLoadZoom } from "../commands/meeting/MeetingLoadZoom"
+import { MeetingStartZoom } from "../commands/meeting/MeetingStartZoom"
 
 // Set log level
 log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
-
-const meetingElementId = "meetingElement"
 
 export default function ZoomWebApp() {
   const [participantName, setParticipantName] = useState("")
@@ -91,11 +89,13 @@ export default function ZoomWebApp() {
     // Create cmds and execute as batch macro
     const validateCmd = new MeetingValidate(context)
     const fetchCmd = new MeetingFetchSignature(context)
-    const startZoomCmd = new MeetingStartZoomComp(context, meetingElementId)
+    const loadZoomCmd = new MeetingLoadZoom(context)
 
+    const startZoomCmd = new MeetingStartZoom(context)
     const macroCmd = new MacroCommand<MeetingContext>(context, [
       validateCmd,
       fetchCmd,
+      loadZoomCmd,
       startZoomCmd
     ])
 
@@ -128,12 +128,6 @@ export default function ZoomWebApp() {
       <Head>
         <title>BeamFi Meeting App</title>
       </Head>
-
-      {isShowZoom && (
-        <Center>
-          <Box id={meetingElementId} />
-        </Center>
-      )}
 
       {!isShowZoom && (
         <Flex direction="column" height="100vh">
