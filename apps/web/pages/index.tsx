@@ -34,7 +34,7 @@ log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
 
 const meetingElementId = "meetingElement"
 
-export default function ZoomWebApp() {
+export default function ZoomComponentApp() {
   const [participantName, setParticipantName] = useState("")
   const [meetingId, setMeetingId] = useState("")
   const [meetingPassword, setMeetingPassword] = useState("")
