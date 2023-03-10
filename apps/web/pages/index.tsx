@@ -91,7 +91,7 @@ export default function ZoomWebApp() {
     const fetchCmd = new MeetingFetchSignature(context)
     const loadZoomCmd = new MeetingLoadZoom(context)
 
-    const startZoomCmd = new MeetingStartZoom(getElementById, context)
+    const startZoomCmd = new MeetingStartZoom(context)
     const macroCmd = new MacroCommand<MeetingContext>(context, [
       validateCmd,
       fetchCmd,
@@ -105,10 +105,6 @@ export default function ZoomWebApp() {
     } catch (error: any) {
       log.error("Error in joining meeting: ", error)
     }
-  }
-
-  const getElementById = (id: string): any => {
-    return document.getElementById(id)
   }
 
   const handleParticipantNameChange = (event: {
