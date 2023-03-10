@@ -27,7 +27,9 @@ export default async function handler(
   const isValid = isInteger(meetingNumber) && isPositive(meetingNumber)
 
   if (!isValid) {
-    res.status(400).send("Invalid request body parameter meetingNumber")
+    res
+      .status(400)
+      .send(`Invalid request body parameter meetingNumber: ${meetingNumber}`)
     return
   }
 
