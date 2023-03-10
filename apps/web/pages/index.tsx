@@ -27,7 +27,7 @@ import { MeetingContext } from "../commands/meeting/MeetingContext"
 import { MeetingValidate } from "../commands/meeting/MeetingValidate"
 import { MeetingFetchSignature } from "../commands/meeting/MeetingFetchSignature"
 
-import { MeetingStartZoomComp } from "../commands/meeting/MeetingStartZoomComp"
+import { ZoomConfigModel as config } from "../model"
 
 // Set log level
 log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
@@ -91,17 +91,47 @@ export default function ZoomComponentApp() {
     // Create cmds and execute as batch macro
     const validateCmd = new MeetingValidate(context)
     const fetchCmd = new MeetingFetchSignature(context)
-    const startZoomCmd = new MeetingStartZoomComp(context, meetingElementId)
 
     const macroCmd = new MacroCommand<MeetingContext>(context, [
       validateCmd,
-      fetchCmd,
-      startZoomCmd
+      fetchCmd
     ])
 
     try {
       setShowZoom(true)
       await macroCmd.execute()
+
+      if (context.signature == null) throw new Error("Invalid Signature")
+
+      const ZoomMtgEmbedded = (await import("@zoomus/websdk/embedded")).default
+      const client = ZoomMtgEmbedded.createClient()
+
+      const meetingSDKElement = document.getElementById(
+        meetingElementId
+      ) as HTMLElement
+      client.init({
+        zoomAppRoot: meetingSDKElement,
+        language: "en-US",
+        customize: {
+          video: {
+            isResizable: true,
+            viewSizes: {
+              default: {
+                width: document.documentElement.scrollWidth,
+                height: document.documentElement.scrollHeight
+              }
+            }
+          }
+        }
+      })
+
+      client.join({
+        sdkKey: config.sdkKey,
+        signature: context.signature,
+        meetingNumber: meetingId,
+        password: meetingPassword,
+        userName: participantName
+      })
     } catch (error: any) {
       log.error("Error in joining meeting: ", error)
     }
