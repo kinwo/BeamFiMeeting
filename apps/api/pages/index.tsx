@@ -1,3 +1,3 @@
 export default function Index() {
-  return <h3>BeamFi Meeting API</h3>
+  return <h3>BeamFi Protocol Meeting API</h3>
 }

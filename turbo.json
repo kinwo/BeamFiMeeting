@@ -1,7 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local", "tsconfig.json"],
-  "globalEnv": ["GITHUB_TOKEN"],
+  "globalEnv": [
+    "GITHUB_TOKEN",
+    "NEXT_PUBLIC_AXIOM_LOG_LEVEL",
+    "ZOOM_SDK_KEY",
+    "ZOOM_SDK_SECRET",
+    "NEXT_PUBLIC_ZOOM_SIGNATURE_ENDPOINT",
+    "NEXT_PUBLIC_ZOOM_SDK_KEY",
+    "NEXT_PUBLIC_ZOOM_LEAVE_URL"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
