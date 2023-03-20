@@ -30,6 +30,7 @@ importers:
       interfaces: workspace:*
       jsrsasign: ^10.6.1
       next: ^13.1.1
+      node-esapi: ^0.0.1
       react: 18.2.0
       react-dom: 18.2.0
       tsconfig: workspace:*
@@ -41,6 +42,7 @@ importers:
       interfaces: link:../../packages/interfaces
       jsrsasign: 10.6.1
       next: 13.2.1_6m24vuloj5ihw4zc5lbsktc4fu
+      node-esapi: 0.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -3727,6 +3729,10 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    dev: false
+
+  /node-esapi/0.0.1:
+    resolution: {integrity: sha512-lT0ci+q4WvJgu+TxJyjSCKiQFUtMNgluxzTq0lbvGCxdgZcllaE0xl5HFuAbqtHdZxIeVzbXgDVP/0aQL8h1pA==}
     dev: false
 
   /node-releases/2.0.10:

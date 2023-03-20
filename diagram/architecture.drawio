@@ -1,0 +1,160 @@
+<mxfile host="65bd71144e">
+    <diagram id="8ihcUCKDKECAHhueK5-E" name="Page-1">
+        <mxGraphModel dx="872" dy="602" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontSize=16;fontColor=#000000;strokeColor=#009900;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="60" y="295" as="sourcePoint"/>
+                        <mxPoint x="160" y="295" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="1.deposit payment" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="15" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0476" y="2" relative="1" as="geometry">
+                        <mxPoint x="15" y="-40" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 15px;&quot;&gt;4.open Beam Meeting URL&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/font&gt;" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=15;fontColor=#FF8000;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#3333FF;" parent="1" target="6" edge="1">
+                    <mxGeometry x="0.3004" y="27" relative="1" as="geometry">
+                        <mxPoint x="56" y="314" as="sourcePoint"/>
+                        <mxPoint x="140" y="404" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="Buyer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="26" y="253" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;fontSize=16;fontColor=#FF8000;strokeColor=#3333FF;" parent="1" source="3" target="31" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="7.start meeting as host" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="23" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0161" y="-1" relative="1" as="geometry">
+                        <mxPoint x="13" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="Creator&amp;nbsp;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="26" y="514" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.096;entryY=0.588;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;fontColor=#FF8000;strokeColor=#009900;" parent="1" source="4" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="2.create Beam escrow" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="16" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1678" y="2" relative="1" as="geometry">
+                        <mxPoint x="9" y="-14" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="Beam Web App" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="268" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;fontSize=16;fontColor=#FF8000;exitX=1;exitY=1;exitDx=0;exitDy=0;strokeColor=#3333FF;entryPerimeter=0;" parent="1" source="6" target="41" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="456" y="568" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="5.create signature" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="19" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0984" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="Beam Meeting Web App running Component Zoom API" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="441" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="swimlane;startSize=0;strokeColor=#FF8000;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="212" width="400" height="529" as="geometry">
+                        <mxRectangle x="314" y="81" width="50" height="40" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Zoom" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=#82b366;fillColor=#d5e8d4;" parent="9" vertex="1">
+                    <mxGeometry x="294" y="203" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&amp;nbsp;Blockchain&amp;nbsp;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="9" vertex="1">
+                    <mxGeometry x="288" y="45" width="80" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;entryX=-0.062;entryY=0.433;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;fontColor=#FF8000;strokeColor=#009900;exitX=0.941;exitY=0.55;exitDx=0;exitDy=0;exitPerimeter=0;" parent="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="161.9760000000001" y="83" as="sourcePoint"/>
+                        <mxPoint x="283.03999999999996" y="83.97000000000003" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="3.update ledger" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="17" vertex="1" connectable="0">
+                    <mxGeometry x="-0.371" y="3" relative="1" as="geometry">
+                        <mxPoint x="19" y="-12" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="Beam &lt;br&gt;Smart Contract" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="34" y="39" width="136" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0.975;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;fontColor=#FF8000;exitX=0.483;exitY=0.113;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#3333FF;" parent="9" source="8" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="10.start streaming payment&lt;br&gt;&amp;nbsp;to creator" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="21" vertex="1" connectable="0">
+                    <mxGeometry x="0.0579" y="-4" relative="1" as="geometry">
+                        <mxPoint x="-10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="Meeting HTTP&lt;br&gt;Webhooks" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="45" y="184" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Meeting &lt;br&gt;Zoom API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="42" y="315" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;entryX=0.942;entryY=0.581;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=16;fontColor=#FF8000;strokeColor=#3333FF;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="294" y="229.52" as="sourcePoint"/>
+                        <mxPoint x="158.03999999999996" y="229.00000000000003" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="9.trigger &lt;br style=&quot;font-size: 15px;&quot;&gt;meeting started&lt;br style=&quot;font-size: 15px;&quot;&gt;webhook" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="20" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1158" y="-2" relative="1" as="geometry">
+                        <mxPoint x="-1" y="-39" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="Server Side" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF8000;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="565" y="170" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Zoom App" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="683" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="8.video streaming" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#3333FF;fontSize=15;fontColor=#000000;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="31" target="6" edge="1">
+                    <mxGeometry x="0.3023" y="-10" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="370" y="403" as="sourcePoint"/>
+                        <mxPoint x="380" y="353" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="BeamFi / Zoom Integration Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="220" y="15" width="390" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;exitX=1.008;exitY=0.636;exitDx=0;exitDy=0;entryX=0;entryY=0.881;entryDx=0;entryDy=0;fontSize=16;fontColor=#FF8000;strokeColor=#3333FF;exitPerimeter=0;entryPerimeter=0;" parent="1" source="6" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="6.join meeting" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=15;fontColor=#000000;" parent="22" vertex="1" connectable="0">
+                    <mxGeometry x="-0.4806" y="2" relative="1" as="geometry">
+                        <mxPoint x="-41" y="-16" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="45" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4D9900;fontSize=18;fontColor=#000000;jumpSize=6;endArrow=none;endFill=0;strokeWidth=3;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="30" y="90" as="sourcePoint"/>
+                        <mxPoint x="100" y="90" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="Flow 1 - Buyer deposits payment to create Beam Escrow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontColor=#000000;fontStyle=2" parent="1" vertex="1">
+                    <mxGeometry x="104" y="76" width="386" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3333FF;fontSize=18;fontColor=#000000;jumpSize=6;endArrow=none;endFill=0;strokeWidth=3;" parent="1" edge="1">
+                    <mxGeometry width="100" relative="1" as="geometry">
+                        <mxPoint x="29" y="119" as="sourcePoint"/>
+                        <mxPoint x="99" y="119" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="51" value="Flow 2 - Buyer joins Zoom meeting hosted by Creator, trigger meeting-started webhook, Beam starts streaming payment to creator" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontColor=#000000;fontStyle=2" parent="1" vertex="1">
+                    <mxGeometry x="105" y="114" width="592" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -5,6 +5,8 @@ import { Signature } from "interfaces"
 import { createSignature } from "../../services/signature"
 import { isInteger, isPositive, runMiddleware } from "../../utils"
 
+import { sanitizeJSURL } from "../../utils/security"
+
 /// https://github.com/expressjs/cors#configuration-options
 const cors = Cors({
   methods: ["POST"]
@@ -29,7 +31,11 @@ export default async function handler(
   if (!isValid) {
     res
       .status(400)
-      .send(`Invalid request body parameter meetingNumber: ${meetingNumber}`)
+      .send(
+        `Invalid request body parameter meetingNumber: ${sanitizeJSURL(
+          meetingNumber
+        )}`
+      )
     return
   }
 
