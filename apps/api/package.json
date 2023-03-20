@@ -12,11 +12,12 @@
     "@types/cors": "^2.8.13",
     "@types/jsrsasign": "^10.5.5",
     "cors": "^2.8.5",
+    "interfaces": "workspace:*",
     "jsrsasign": "^10.6.1",
     "next": "^13.1.1",
+    "node-esapi": "^0.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "interfaces": "workspace:*"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
