@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/terms",
+      "destination": "https://beamfi.freshdesk.com/support/solutions/articles/51000335011-terms-of-use",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "https://beamfi.freshdesk.com/support/solutions/articles/51000335012-privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/support",
+      "destination": "https://beamfi.freshdesk.com/support/home",
+      "permanent": true
+    },
+    {
+      "source": "/docu",
+      "destination": "https://beamfi.freshdesk.com",
+      "permanent": true
+    }
+  ]
+}
