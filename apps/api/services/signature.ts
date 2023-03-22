@@ -29,3 +29,7 @@ export function createSignature(meetingNumber: number): string {
 
   return signature
 }
+
+export function checkClientKey(clientKey: string): boolean {
+  return clientKey === process.env.BEAMFI_CLIENT_KEY
+}

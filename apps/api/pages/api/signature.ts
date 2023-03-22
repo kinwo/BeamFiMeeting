@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import Cors from "cors"
 
 import { Signature } from "interfaces"
-import { createSignature } from "../../services/signature"
+import { createSignature, checkClientKey } from "../../services/signature"
 import { isInteger, isPositive, runMiddleware } from "../../utils"
 
 import { sanitizeJSURL } from "../../utils/security"
@@ -18,6 +18,12 @@ export default async function handler(
 ) {
   // Run the middleware
   await runMiddleware(req, res, cors)
+
+  // check client key
+  if (!checkClientKey(req.query.clientKey as string)) {
+    res.status(400).send("Unauthorized HTTP request")
+    return
+  }
 
   // validate
   if (req.method !== "POST") {
