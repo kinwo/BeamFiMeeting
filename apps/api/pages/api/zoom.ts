@@ -56,5 +56,11 @@ export default async function handler(
   })
 
   const resText = await icResponse.text()
-  res.status(icResponse.status).send(resText)
+  const resHeaders: { [key: string]: string } = {}
+
+  for (const pair of icResponse.headers) {
+    resHeaders[pair[0]] = pair[1]
+  }
+
+  res.writeHead(icResponse.status, resHeaders).end(resText)
 }
