@@ -28,6 +28,7 @@ import { MeetingValidate } from "../commands/meeting/MeetingValidate"
 import { MeetingFetchSignature } from "../commands/meeting/MeetingFetchSignature"
 
 import { ZoomConfigModel as config } from "../model"
+import { decrypt, importKey, unpack } from "../utils/crypto"
 
 // Set log level
 log.logLevel = String(process.env.NEXT_PUBLIC_AXIOM_LOG_LEVEL)
@@ -65,9 +66,30 @@ export default function ZoomComponentApp() {
   const router = useRouter()
 
   useEffect(() => {
-    const query = router.query
-    setMeetingId(query.meetingId as string)
-    setMeetingPassword(query.meetingPassword as string)
+    const loadData = async () => {
+      const query = router.query
+
+      if (query.cipher && query.iv) {
+        const cipher: string = query.cipher as string
+        const iv: string = query.iv as string
+
+        const key = process.env.NEXT_PUBLIC_WEB_CRYPTO_KEY as string
+        const cryptoKey = await importKey(key)
+
+        const decryptedJSONString = await decrypt(
+          unpack(cipher),
+          cryptoKey,
+          unpack(iv)
+        )
+
+        const decryptedJSON = JSON.parse(decryptedJSONString)
+
+        setMeetingId(decryptedJSON.meetingId as string)
+        setMeetingPassword(decryptedJSON.meetingPassword as string)
+      }
+    }
+
+    loadData()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query])
