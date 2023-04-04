@@ -17,7 +17,7 @@
     },
     {
       "source": "/docu",
-      "destination": "https://beamfi.freshdesk.com",
+      "destination": "https://beamfi.freshdesk.com/support/solutions",
       "permanent": true
     }
   ]
