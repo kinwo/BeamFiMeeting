@@ -4,8 +4,8 @@ import { MeetingContext } from "./MeetingContext"
 import { ZoomConfigModel as config } from "../../model"
 
 export class MeetingFetchSignature extends BaseCommand<MeetingContext> {
-  async execute(): Promise<void> {
-    const meetingNumber: number = Number(this.context.meetingNumber)
+  async execute(context: MeetingContext): Promise<void> {
+    const meetingNumber: number = Number(context.meetingNumber)
 
     const res = await fetch(config.signatureEndpoint, {
       method: "POST",
@@ -21,6 +21,6 @@ export class MeetingFetchSignature extends BaseCommand<MeetingContext> {
     }
 
     const { signature }: Signature = await res.json()
-    this.context.signature = signature
+    context.signature = signature
   }
 }

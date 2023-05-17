@@ -111,8 +111,8 @@ export default function ZoomComponentApp() {
     }
 
     // Create cmds and execute as batch macro
-    const validateCmd = new MeetingValidate(context)
-    const fetchCmd = new MeetingFetchSignature(context)
+    const validateCmd = new MeetingValidate()
+    const fetchCmd = new MeetingFetchSignature()
 
     const macroCmd = new MacroCommand<MeetingContext>(context, [
       validateCmd,

@@ -5,7 +5,7 @@ const ZoomLibURI = "https://source.zoom.us/2.9.7/lib"
 const ZoomLang = "en-US"
 
 export class MeetingLoadZoom extends BaseCommand<MeetingContext> {
-  async execute(): Promise<void> {
+  async execute(context: MeetingContext): Promise<void> {
     const { ZoomMtg } = await import("@zoomus/websdk")
 
     ZoomMtg.setZoomJSLib(ZoomLibURI, "/av")
@@ -14,6 +14,6 @@ export class MeetingLoadZoom extends BaseCommand<MeetingContext> {
     ZoomMtg.i18n.load(ZoomLang)
     ZoomMtg.i18n.reload(ZoomLang)
 
-    this.context.zoomMtg = ZoomMtg
+    context.zoomMtg = ZoomMtg
   }
 }

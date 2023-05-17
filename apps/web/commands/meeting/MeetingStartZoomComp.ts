@@ -5,13 +5,11 @@ import { ZoomConfigModel as config } from "../../model"
 
 export class MeetingStartZoomComp extends BaseCommand<MeetingContext> {
   // eslint-disable-next-line no-unused-vars
-  constructor(context: MeetingContext, public meetingElementId: string) {
-    super(context)
+  constructor(public meetingElementId: string) {
+    super()
   }
 
-  async execute(): Promise<void> {
-    const context = this.context
-
+  async execute(context: MeetingContext): Promise<void> {
     const meetingNumber = String(context.meetingNumber)
     const userName = String(context.userName)
     const passWord = String(context.passWord)
