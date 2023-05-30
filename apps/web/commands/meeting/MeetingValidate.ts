@@ -6,19 +6,19 @@ import { log } from "next-axiom"
 import { isNumber } from "../../utils"
 
 export class MeetingValidate extends BaseCommand<MeetingContext> {
-  async execute(): Promise<void> {
+  async execute(context: MeetingContext): Promise<void> {
     if (
-      !isNumber(this.context.meetingNumber) ||
-      !(isString(this.context.userName) && !isEmpty(this.context.userName)) ||
-      !isString(this.context.passWord)
+      !isNumber(context.meetingNumber) ||
+      !(isString(context.userName) && !isEmpty(context.userName)) ||
+      !isString(context.passWord)
     ) {
-      log.warn("Invalid query params", this.getQueryParamObj())
+      log.warn("Invalid query params", this.getQueryParamObj(context))
       throw new Error("Invalid query params")
     }
   }
 
-  private getQueryParamObj(): Object {
-    const { meetingNumber, userName, passWord } = this.context
+  private getQueryParamObj(context: MeetingContext): Object {
+    const { meetingNumber, userName, passWord } = context
     return { meetingNumber, userName, passWord }
   }
 }

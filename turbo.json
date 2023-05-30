@@ -2,16 +2,17 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local", "tsconfig.json"],
   "globalEnv": [
+    "BEAMFI_CLIENT_KEY",
+    "BEAMFI_IC_ZOOM_ENDPOINT",
     "GITHUB_TOKEN",
     "NEXT_PUBLIC_AXIOM_LOG_LEVEL",
-    "ZOOM_SDK_KEY",
-    "BEAMFI_CLIENT_KEY",
-    "ZOOM_SDK_SECRET",
     "NEXT_PUBLIC_ZOOM_SIGNATURE_ENDPOINT",
     "NEXT_PUBLIC_ZOOM_SDK_KEY",
     "NEXT_PUBLIC_ZOOM_LEAVE_URL",
-    "BEAMFI_IC_ZOOM_ENDPOINT",
-    "NEXT_PUBLIC_WEB_CRYPTO_KEY"
+    "NEXT_PUBLIC_WEB_CRYPTO_KEY",
+    "ZOOM_SDK_KEY",
+    "ZOOM_SDK_SECRET",
+    "ZOOM_WEBHOOK_SECRET_TOKEN"
   ],
   "pipeline": {
     "build": {
