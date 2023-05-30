@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import Cors from "cors"
+import crypto from "crypto"
 
 import { Signature } from "interfaces"
 import { checkClientKey } from "../../services/signature"
@@ -14,9 +15,17 @@ const ZOOM_HEADER_SIGNATURE = "x-zm-signature"
 const ZOOM_HEADER_TIMESTAMP = "x-zm-request-timestamp"
 const HTTP_HEADER_CONTENT_TYPE = "content-type"
 
+const ZoomValidationEvent = "endpoint.url_validation"
+const ZOOM_WEBHOOK_SECRET_TOKEN: string = process.env.ZOOM_SDK_KEY || ""
+
+type ZoomValidateResponse = {
+  plainToken: string
+  encryptedToken: string
+}
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Signature | string>
+  res: NextApiResponse<string | Signature | ZoomValidateResponse>
 ) {
   // Run the middleware
   await runMiddleware(req, res, cors)
@@ -31,6 +40,12 @@ export default async function handler(
   // validate
   if (req.method !== "POST") {
     res.status(400).send("Invalid HTTP method")
+    return
+  }
+
+  if (req.body.event === ZoomValidationEvent) {
+    const validateResponse = validateZoomRequest(req)
+    res.json(validateResponse)
     return
   }
 
@@ -63,4 +78,17 @@ export default async function handler(
   }
 
   res.writeHead(icResponse.status, resHeaders).end(resText)
+}
+
+function validateZoomRequest(req: NextApiRequest): ZoomValidateResponse {
+  const plainToken: string = req.body.payload.plainToken
+  const hashForValidate = crypto
+    .createHmac("sha256", ZOOM_WEBHOOK_SECRET_TOKEN)
+    .update(plainToken)
+    .digest("hex")
+
+  return {
+    plainToken: plainToken,
+    encryptedToken: hashForValidate
+  }
 }
