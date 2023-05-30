@@ -16,7 +16,8 @@ const ZOOM_HEADER_TIMESTAMP = "x-zm-request-timestamp"
 const HTTP_HEADER_CONTENT_TYPE = "content-type"
 
 const ZoomValidationEvent = "endpoint.url_validation"
-const ZOOM_WEBHOOK_SECRET_TOKEN: string = process.env.ZOOM_SDK_SECRET || ""
+const ZOOM_WEBHOOK_SECRET_TOKEN: string =
+  process.env.ZOOM_WEBHOOK_SECRET_TOKEN || ""
 
 type ZoomValidateResponse = {
   plainToken: string
